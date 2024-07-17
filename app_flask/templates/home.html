@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/home.css')}}">
+    <title>Home | Joint</title>
+</head>
+<body>
+    <div class="total-container">
+        <header>
+            <div class="title-container">
+                <h1 id="title">Joint</h1>
+            </div>
+            <a href="#"><img src="{{url_for('static', filename='/img/chat.svg')}}" alt="Chat"></a>
+        </header>
+        <section class="top-container">
+            <a href="/profile">
+                <div class="user-container">
+                    {% if session.profile_picture %}
+                    <div class="picture"><img src="{{url_for('static', filename=session.profile_picture)}}" id="picture" alt="Picture"></div>
+                    {% else %}
+                    <div class="picture"><img src="{{url_for('static', filename='/img/profile_pics/picture.svg')}}" id="picture" alt="Picture"></div>
+                    {% endif %}
+                    <div class="information">
+                        <span id="name">{{session.name}}</span>
+                        <div id="position">{{session.position}}</div>
+                        <div id="company">{{session.company}}</div>
+                    </div>
+                </div>
+            </a>
+        </section>
+        <section class="mid-container">
+            <div class="news-container">
+                <h5>Novedades</h5>
+                <article>
+                    <span>¡Esta es una de muchas novedades!</span>
+                </article>
+            </div>
+            <div class="options-container">
+                <a href="/share/qr" class="options">
+                    <img src="{{url_for('static', filename='/img/qr.svg')}}" class="icon" alt="QR">
+                    <span>Compartir QR</span>
+                </a>
+                <a href="/scan/qr" class="options">
+                    <img src="{{url_for('static', filename='/img/scan.svg')}}" class="icon" alt="QR Scan">
+                    <span>Escanear QR</span>
+                </a>
+            </div>
+            <div class="options-container">
+                <a href="#" class="options">
+                    <img src="{{url_for('static', filename='/img/support.svg')}}" class="icon" alt="support">
+                    <span>Soporte</span>
+                </a>
+                <a href="#" class="options">
+                    <img src="{{url_for('static', filename='/img/alert.svg')}}" class="icon" alt="alert">
+                    <span>Reclamos</span>
+                </a>
+            </div>
+        </section>
+        <section class="bottom-bar">
+            <div>
+                <a href="/home"><img src="{{url_for('static', filename='/img/home.svg')}}" alt="home"></a>
+            </div>
+            <div>
+                <a href="/search"><img src="{{url_for('static', filename='/img/search.svg')}}" alt="search"></a>
+            </div>
+            <div>
+                <a href="/contacts"><img src="{{url_for('static', filename='/img/notebook.svg')}}" alt="notebook"></a>
+            </div>
+            <div>
+                <a href="/profile"><img src="{{url_for('static', filename='/img/profile.svg')}}" alt="profile"></a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

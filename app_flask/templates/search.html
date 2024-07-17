@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/search.css')}}">
+    <title>Buscar | Joint</title>
+</head>
+<body>
+    <div class="total-container">
+        <header>
+            <a href="/home"><img src="{{url_for('static', filename='/img/back_arrow.svg')}}" alt="Back"></a>
+            <div class="title-container">
+                <h1>Joint</h1>
+            </div>
+        </header>
+        <section class="users-container">
+            {% for user in users %}
+            <div class="user-container">
+                <a href="/profile/user/{{user.id}}" class="user">
+                    <div class="left-user">
+                        {% if user.profile_picture %}
+                        <div class="picture"><img src="{{url_for('static', filename=user.profile_picture)}}" id="picture" alt="Picture"></div>
+                        {% else %}
+                        <div class="picture"><img src="{{url_for('static', filename='/img/profile_pics/picture.svg')}}" id="picture" alt="Picture"></div>
+                        {% endif %}
+                        <div class="information">
+                            <span>{{user.name}}</span>
+                            <div id="position">{{user.position}}</div>
+                            <div id="company">{{user.company}}</div>
+                        </div>
+                    </div>
+                </a>
+                <div class="add-user">
+                    {% if user.id in contacts_ids %}
+                    <img src="{{url_for('static', filename='/img/check.svg')}}" alt="check">
+                    {% else %}
+                    <form action="/add-contact/{{user.id}}" method="POST">
+                        <input type="image" src="{{url_for('static', filename='/img/add-user.svg')}}" alt="Add User">
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+        <section class="bottom-bar">
+            <div>
+                <a href="/home"><img src="{{url_for('static', filename='/img/home.svg')}}" alt="home"></a>
+            </div>
+            <div>
+                <a href="/search"><img src="{{url_for('static', filename='/img/search.svg')}}" alt="search"></a>
+            </div>
+            <div>
+                <a href="/contacts"><img src="{{url_for('static', filename='/img/notebook.svg')}}" alt="notebook"></a>
+            </div>
+            <div>
+                <a href="/profile"><img src="{{url_for('static', filename='/img/profile.svg')}}" alt="profile"></a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

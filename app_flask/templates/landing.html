@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/landing.css')}}">
+    <title>Joint</title>
+</head>
+<body>
+    <header>
+        <div class="title-container">
+            <h1 id="title-joint">Joint</h1>
+        </div>
+        <div class="header-btn-container">
+            <div><a class="header-btn" href="/login">Iniciar sesión</a></div>
+            <div><a class="header-btn" href="/register">Registrarse Gratis</a></div>
+        </div>
+    </header>
+    <main>
+        <section class="principal-section">
+            <div class="principal-container">
+                <h1 id="principal-title-join"> Joint </h1>
+                <span id="principal-subtitle">¡Gestiona tus contactos de forma inteligente, estructurada, y rápida!</span>
+                <div class="principal-btn-container"> <a id="principal-btn" href="/register">¡Únete gratis!</a> </div>
+            </div>
+        </section>
+        <section class="management-section">
+            <div class="left-management-container">
+                <h2 id="management-title">Gestión centralizada <br> de contactos</h2>
+                <div>
+                    <span id="management-subtitle">
+                        Agregar contactos y mantenerlos actualizados
+                        <br>
+                        nunca fue tan fácil
+                    </span>
+                </div>
+            </div>
+            <div class="right-management-container">
+                <img src="{{url_for('static', filename='/img/landing/management_picture.png')}}" alt="Management Picture" draggable="false">
+            </div>
+        </section>
+        <section class="real-time-section">
+            <div class="left-real-time-container">
+                <h2 id="real-time-title">Actualización en tiempo real</h2>
+                <div>
+                    <span id="real-time-subtitle">
+                        Agregar contactos y mantenerlos actualizados
+                        <br>
+                        nunca fue tan fácil
+                    </span>
+                </div>
+            </div>
+            <div class="right-real-time-container">
+                <img src="{{url_for('static', filename='/img/landing/real_time_picture.png')}}" alt="Real Time Picture" draggable="false">
+            </div>
+        </section>
+        <section class="costumers-section">
+            <h2 id="costumers-title">Ellos confiaron en Joint</h2>
+            <div class="costumers-cards-container">
+                <div class="costumer-card">
+                    <img src="{{url_for('static', filename='/img/landing/microsoft.png')}}" alt="Costumers Picture" style="height: 80px;">
+                </div>
+                <div class="costumer-card">
+                    <img src="{{url_for('static', filename='/img/landing/jpmorgan.png')}}" alt="Costumers Picture" style="height: 80px;">
+                </div>
+                <div class="costumer-card">
+                    <img src="{{url_for('static', filename='/img/landing/ibm.png')}}" alt="Costumers Picture" style="height: 80px;">
+                </div>
+                <div class="costumer-card">
+                    <img src="{{url_for('static', filename='/img/landing/apple.png')}}" alt="Costumers Picture" style="height: 80px;">
+                </div>
+                <div class="costumer-card">
+                    <img src="{{url_for('static', filename='/img/landing/accenture.png')}}" alt="Costumers Picture" style="height: 80px;">
+                </div>
+                <div class="costumer-card">
+                    <img src="{{url_for('static', filename='/img/landing/google.png')}}" alt="Costumers Picture" style="height: 80px;">
+                </div>
+                <div class="costumer-card">
+                    <img src="{{url_for('static', filename='/img/landing/walmartcl.png')}}" alt="Costumers Picture" style="height: 80px;">
+                </div>
+            </div>
+            <div>
+                <span id="costumers-subtitle"> ¡Sé el siguiente! </span>
+            </div>
+        </section>
+        <section class="users-section">
+            <div>
+                <h2 id="user-title">Lo que opinan nuestros usuarios</h2>
+            </div>
+            <div class="users-card-container">
+                <div class="user-card">
+                    <div class="name-star-container">
+                        <img src="{{url_for('static', filename='/img/landing/generic-pic.png')}}" alt="user profile picture" class="user-pic">
+                        <div>
+                            <span>Pablo Paredes</span>
+                            <div> <img src="{{url_for('static', filename='/img/landing/five_stars.png')}}" alt="five stars"> </div>
+                        </div>
+                    </div>
+                    <div class="user-card-text">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis maiores nisi harum, eos perferendis commodi similique accusantium itaque porro, qui sed, quas voluptatum saepe vitae minus culpa reprehenderit eum dolor.</p>
+                    </div>
+                </div>
+                <div class="user-card">
+                    <div class="name-star-container">
+                        <img src="{{url_for('static', filename='/img/landing/generic-pic.png')}}" alt="user profile picture" class="user-pic">
+                        <div>
+                            <span>Angel Di Maria</span>
+                            <div> <img src="{{url_for('static', filename='/img/landing/five_stars.png')}}" alt="five stars"> </div>
+                        </div>
+                    </div>
+                    <div class="user-card-text">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis maiores nisi harum, eos perferendis commodi similique accusantium itaque porro, qui sed, quas voluptatum saepe vitae minus culpa reprehenderit eum dolor.</p>
+                    </div>
+                </div>
+                <div class="user-card">
+                    <div class="name-star-container">
+                        <img src="{{url_for('static', filename='/img/landing/generic-pic.png')}}" alt="user profile picture" class="user-pic">
+                        <div>
+                            <span>Kalule Melendez</span>
+                            <div> <img src="{{url_for('static', filename='/img/landing/five_stars.png')}}" alt="five stars"> </div>
+                        </div>
+                    </div>
+                    <div class="user-card-text">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis maiores nisi harum, eos perferendis commodi similique accusantium itaque porro, qui sed, quas voluptatum saepe vitae minus culpa reprehenderit eum dolor.</p>
+                    </div>
+                </div>
+                <div class="user-card">
+                    <div class="name-star-container">
+                        <img src="{{url_for('static', filename='/img/landing/generic-pic.png')}}" alt="user profile picture" class="user-pic">
+                        <div>
+                            <span>Jason Tatum</span>
+                            <div> <img src="{{url_for('static', filename='/img/landing/five_stars.png')}}" alt="five stars"> </div>
+                        </div>
+                    </div>
+                    <div class="user-card-text">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis maiores nisi harum, eos perferendis commodi similique accusantium itaque porro, qui sed, quas voluptatum saepe vitae minus culpa reprehenderit eum dolor.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="faq-section">
+            <h2 id="faq-title">Preguntas frecuentes</h2>
+            <details name="info">
+                <summary>¿Cómo agrego un nuevo contacto?</summary>
+                <p>Para agregar un nuevo contacto, puedes en la sección "Home", escanear el código QR de otro usuario.</p>
+                <p>También puedes ir a la sección "Search" y con la barra de búsqueda encontrar al usuario deseado, presione el ícono de agregar y ya se encontraría en sus contactos.</p>
+            </details>
+            <details name="info">
+                <summary>¿Puedo usar Joint en mi dispositivo móvil?</summary>
+                <p>¡Claro que puedes!</p>
+                <p>Joint está adaptado para usarse en todos los dispositivos posibles. En celular, en tablet, en laptops, en computadores de escritorio.</p>
+                <p>¡En lo que quieras!</p>
+            </details>
+            <details name="info">
+                <summary>¿Qué ocurre si alguien cambia su información de contacto?</summary>
+                <p>En el momento que un contacto tuyo cambie su información de contacto, Joint automáticamente actualiza la información.</p>
+                <p>¡Casi al instante!</p>
+            </details>
+            <details name="info">
+                <summary>¿Joint es gratis?</summary>
+                <p>¡Así es!</p>
+                <p>¡Joint es completamente gratis, puedes acceder a todas sus funciones en cualquier momento sin ningún costo!</p>
+            </details>
+            <details name="info">
+                <summary>¿Qué debo hacer si encuentro algún problema?</summary>
+                <p>En caso de que tengas algún problema con Joint, contáctenos.</p>
+                <p>¡Estamos sumamente comprometidos en ofrecerle la mejor de las experiencias, y dispuestos a solucionar cualquier problema que pueda surgir!</p>
+                <p>Nos pondremos en contacto lo antes posible con usted.</p>
+            </details>
+        </section>
+    </main>
+    <footer>
+        <section class="footer-top-section">
+            <nav>
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="/">Landing</a></li>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/login">Iniciar sesión</a></li>
+                    <li><a href="/register">Registrarse</a></li>
+                </ul>
+            </nav>
+            <nav>
+                <h4>Acerca de</h4>
+                <ul>
+                    <li><a href="#">Quiénes somos</a></li>
+                    <li><a href="#">Nuestro equipo</a></li>
+                    <li><a href="#">Novedades</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+            <nav>
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Política de privacidad</a></li>
+                </ul>
+            </nav>
+            <nav>
+                <h4>Síguenos</h4>
+                <ul>
+                    <li>
+                        <a href="#" class="social-a">
+                            <div><img src="{{url_for('static', filename='/img/landing/facebook.svg')}}" alt="facebook icon" class="social-icon"></div>
+                            Facebook
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="social-a">
+                            <div><img src="{{url_for('static', filename='/img/landing/instagram.svg')}}" alt="instagram icon" class="social-icon"></div>
+                            Instagram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="social-a">
+                            <div><img src="{{url_for('static', filename='/img/landing/youtube.svg')}}" alt="youtube icon" class="social-icon"></div>
+                            Youtube
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="social-a">
+                            <div><img src="{{url_for('static', filename='/img/landing/x.svg')}}" alt="twitter icon" class="social-icon"></div>
+                            Twitter
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="social-a">
+                            <div><img src="{{url_for('static', filename='/img/landing/linkedin.svg')}}" alt="linkedin icon" class="social-icon"></div>
+                            LinkedIn
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+        <section class="footer-bottom-section">
+            <div><span>Copyright © 2024</span></div>
+            <div><span>Todos los derechos reservados</span></div>
+        </section>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/edit-profile.css')}}">
+    <title>Editar perfil | Joint</title>
+</head>
+<body>
+    <section>
+        <header>
+            <a href="/profile"><img src="{{url_for('static', filename='/img/back_arrow.svg')}}" alt="Back"></a>
+            <div class="title-container">
+                <h1>Editar perfil</h1>
+            </div>
+        </header>
+        <form action="/profile/edit/process" method="POST" enctype="multipart/form-data">
+            <div class="photo-container">
+                {% if session.profile_picture %}
+                <img src="{{url_for('static', filename=session['profile_picture'])}}" alt="Picture" id="picture" draggable="false">
+                {% else %}
+                <img src="{{url_for('static', filename='/img/profile_pics/picture.svg')}}" alt="Picture" id="picture" draggable="false">
+                {% endif %}
+                <div>
+                    <label for="file" class="file">Editar foto</label>
+                    <input type="file" name="file" id="file" accept="image/*">
+                </div>
+            </div>
+            <div class="total-input-container">
+                <div class="input-container">
+                    <div class="label-input">
+                        <div>
+                            <label for="name">Nombre:</label>
+                        </div>
+                        <input type="text" name="name" class="input" placeholder="Tu nombre" value="{{session.name}}">
+                    </div>
+                    {% for message in get_flashed_messages(category_filter=['name_error']) %}
+                    <div class="error-icon" data-message="{{message}}">
+                        <img src="{{url_for('static', filename='/img/error.svg')}}" alt="Error">
+                        <div class="tooltip">{{message}}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="input-container">
+                    <div class="label-input">
+                        <div>
+                            <label for="position">Puesto:</label>
+                        </div>
+                        {% if session.position %}
+                        <input type="text" name="position" class="input" placeholder="Tu puesto de trabajo" value="{{session.position}}">
+                        {% else %}
+                        <input type="text" name="position" class="input" placeholder="Tu puesto de trabajo" value="">
+                        {% endif %}
+                    </div>
+                    {% for message in get_flashed_messages(category_filter=['position_error']) %}
+                    <div class="error-icon" data-message="{{message}}">
+                        <img src="{{url_for('static', filename='/img/error.svg')}}" alt="Error">
+                        <div class="tooltip">{{message}}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="input-container">
+                    <div class="label-input">
+                        <div>
+                            <label for="company">Empresa:</label>
+                        </div>
+                        {% if session.company %}
+                        <input type="text" name="company" class="input" placeholder="Nombre de empresa" value="{{session.company}}">
+                        {% else %}
+                        <input type="text" name="company" class="input" placeholder="Nombre de empresa" value="">
+                        {% endif %}
+                    </div>
+                    {% for message in get_flashed_messages(category_filter=['company_error']) %}
+                    <div class="error-icon" data-message="{{message}}">
+                        <img src="{{url_for('static', filename='/img/error.svg')}}" alt="Error">
+                        <div class="tooltip">{{message}}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="input-container">
+                    <div class="label-input">
+                        <div>
+                            <label for="description">Descripción:</label>
+                        </div>
+                        {% if session.description %}
+                        <input type="text" name="description" class="input" placeholder="Tu descripción acerca de ti" value="{{session.description}}">
+                        {% else %}
+                        <input type="text" name="description" class="input" placeholder="Tu descripción acerca de ti" value="">
+                        {% endif %}
+                    </div>
+                    {% for message in get_flashed_messages(category_filter=['description_error']) %}
+                    <div class="error-icon" data-message="{{message}}">
+                        <img src="{{url_for('static', filename='/img/error.svg')}}" alt="Error">
+                        <div class="tooltip">{{message}}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="input-container">
+                    <div class="label-input">
+                        <div>
+                            <label for="email">Email:</label>
+                        </div>
+                        {% if session.email %}
+                        <input type="email" name="email" class="input" placeholder="Tu correo electrónico" value="{{session.email}}">
+                        {% else %}
+                        <input type="email" name="email" class="input" placeholder="Tu correo electrónico" value="">
+                        {% endif %}
+                    </div>
+                    {% for message in get_flashed_messages(category_filter=['email_error']) %}
+                    <div class="error-icon" data-message="{{message}}">
+                        <img src="{{url_for('static', filename='/img/error.svg')}}" alt="Error">
+                        <div class="tooltip">{{message}}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="input-container">
+                    <div class="label-input">
+                        <div>
+                            <label for="phone_number">Teléfono:</label>
+                        </div>
+                        {% if session.phone_number %}
+                        <input type="tel" name="phone_number" class="input" placeholder="+56 9 1234 5678" value="{{session.phone_number}}">
+                        {% else %}
+                        <input type="tel" name="phone_number" class="input" placeholder="+56 9 1234 5678" value="">
+                        {% endif %}
+                    </div>
+                    {% for message in get_flashed_messages(category_filter=['phone_number_error']) %}
+                    <div class="error-icon" data-message="{{message}}">
+                        <img src="{{url_for('static', filename='/img/error.svg')}}" alt="Error">
+                        <div class="tooltip">{{message}}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="input-container">
+                    <div class="label-input">
+                        <div>
+                            <label for="web">Página Web:</label>
+                        </div>
+                        {% if session.web %}
+                        <input type="url" name="web" class="input" placeholder="https://www.joint.com" value="{{session.web}}">
+                        {% else %}
+                        <input type="url" name="web" class="input" placeholder="https://www.joint.com" value="">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="input-container">
+                    <div class="label-input">
+                        <div>
+                            <label for="web">LinkedIn:</label>
+                        </div>
+                        {% if session.linkedin %}
+                        <input type="url" name="linkedin" class="input" placeholder="https://www.linkedin.com/in/tu-nombre-5A123K185c" value="{{session.linkedin}}">
+                        {% else %}
+                        <input type="url" name="linkedin" class="input" placeholder="https://www.linkedin.com/in/tu-nombre-5A123K185c" value="">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="btn-container">
+                    <div>
+                        <a href="/profile" class="btn-cancel">Cancelar</a>
+                    </div>
+                    <div>
+                        <input type="submit" class="btn-apply" value="Aplicar cambios">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+    <script src="{{url_for('static', filename='/js/register_login.js')}}"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/register.css')}}">
+    <title>Registro | Joint</title>
+</head>
+<body>
+    <section>
+        <div class="title-container">
+            <h1 id="title">Joint</h1>
+        </div>
+        <form action="register/process" method="post">
+            <div class="user-container">
+                <span>Nombre</span>
+                <div class="input-container">
+                    <img src="{{url_for('static', filename='/img/user.svg')}}" alt="User" class="svg">
+                    <input type="text" class="input-box" name="name" placeholder="Escribe tu nombre">
+                    {% for message in get_flashed_messages(category_filter=['name_error']) %}
+                    <div class="error-icon" data-message="{{message}}">
+                        <img src="{{url_for('static', filename='/img/error.svg')}}" alt="Error">
+                        <div class="tooltip">{{message}}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="flash-message" id="flash-message"></div>
+            </div>
+            <div class="email-container">
+                <span>Correo electrónico</span>
+                <div class="input-container">
+                    <img src="{{url_for('static', filename='/img/email.svg')}}" alt="Email" class="svg">
+                    <input type="email" class="input-box" name="email" placeholder="Escribe tu correo electrónico">
+                    {% for message in get_flashed_messages(category_filter=['email_error']) %}
+                    <div class="error-icon" data-message="{{message}}">
+                        <img src="{{url_for('static', filename='/img/error.svg')}}" alt="Error">
+                        <div class="tooltip">{{message}}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="password-container">
+                <span>Contraseña</span>
+                <div class="input-container">
+                    <img src="{{url_for('static', filename='/img/lock.svg')}}" alt="Lock" class="svg">
+                    <input type="password" class="input-box" name="password" placeholder="Escribe tu contraseña">
+                    {% for message in get_flashed_messages(category_filter=['password_error']) %}
+                    <div class="error-icon" data-message="{{message}}">
+                        <img src="{{url_for('static', filename='/img/error.svg')}}" alt="Error">
+                        <div class="tooltip">{{message}}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="confirm-password-container">
+                <span>Confirmar contraseña</span>
+                <div class="input-container">
+                    <img src="{{url_for('static', filename='/img/lock_confirm.svg')}}" alt="Lock" class="svg">
+                    <input type="password" class="input-box" name="password_confirm" placeholder="Confirma tu contraseña">
+                    {% for message in get_flashed_messages(category_filter=['password_confirm_error']) %}
+                    <div class="error-icon" data-message="{{message}}">
+                        <img src="{{url_for('static', filename='/img/error.svg')}}" alt="Error">
+                        <div class="tooltip">{{message}}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="submit-container">
+                <input type="submit" id="register-btn" value="Crear cuenta"></input>
+            </div>
+        </form>
+        <span id="disclaimer">Al crear una cuenta estás aceptando los <br> <a href="#"><strong>Términos de Servicio</strong></a> y <a href="#"><strong>Términos de Privacidad</strong></a></span>
+        <div class="login-container">
+            <div><span>¿Ya tienes una cuenta?</span></div>
+            <div><a href="/login" id="login-anchor">¡Inicia sesión aquí!</a></div>
+        </div>
+    </section>
+    <script src="{{url_for('static', filename='/js/register_login.js')}}"></script>
+</body>
+</html>

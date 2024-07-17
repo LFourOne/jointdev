@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/scan-qr.css')}}">
+    <title>Escanear QR | Joint</title>
+</head>
+<body>
+    <main>
+        <header>
+            <a href="/home"><img src="{{url_for('static', filename='/img/back_arrow.svg')}}" alt="Back"></a>
+            <div class="title-container">
+                <h1>Joint</h1>
+            </div>
+        </header>
+        <section class="middle-container">
+            <div class="qr-container">
+                <img src="{{url_for('static', filename='/img/ejemploqr.png')}}" alt="qr" id="qr">
+            </div>
+            <div class="paragraph-container">
+                <p>Al escanear este código QR, agregarás al usuario de este como contacto.</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/profile.css')}}">
+    <title>Perfil | Joint</title>
+</head>
+<body>
+    <div class="total-container">
+        <div>
+            <header>
+                <div class="title-container">
+                    <h1 id="title">Joint</h1>
+                </div>
+                <a href="#"><img src="{{url_for('static', filename='/img/settings.svg')}}" alt="Chat"></a>
+            </header>
+            <section class="top-container">
+                <div class="photo-container">
+                    {% if session.profile_picture %}
+                    <img src="{{url_for('static', filename=session['profile_picture'])}}" alt="Picture" id="picture">
+                    {% else %}
+                    <img src="{{url_for('static', filename='/img/profile_pics/picture.svg')}}" alt="Picture" id="picture">
+                    {% endif %}
+                </div>
+                <div>
+                    <div><span class="profile-span">{{session.name}}</span></div>
+                    <div class="profile-subspan-container"><span class="profile-subspan">{{session.position}}</span></div>
+                    <div class="profile-subspan-container"><span class="profile-subspan">{{session.company}}</span></div>
+                    <div class="edit-profile">
+                        <a href="/profile/edit" id="edit-btn">Editar perfil</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <section class="mid-container">
+            <div class="contact-description-container">
+                <div class="aboutme-container">
+                    <div class="mid-titles">
+                        <h2>Sobre mí</h2>
+                    </div>
+                    <div class="description">
+                        {% if session.description %}
+                        <p>{{session.description}}</p>
+                        {% else %}
+                        <p style="text-align: center;">¡Aún no has escrito nada! <br> ¡Escribe sobre ti para que los demás puedan conocerte!</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="contact-container">
+                    <div class="mid-titles">
+                        <h2>Datos de contacto</h2>
+                    </div>
+                    <div class="contact-info-container">
+                        <div class="contact-info">
+                            <img src="{{url_for('static', filename='/img/email_black.svg')}}" alt="Email">
+                            <div><span>{{session.email}}</span></div>
+                        </div>
+                        <div class="contact-info">
+                            <img src="{{url_for('static', filename='/img/phone.svg')}}" alt="Phone">
+                            <div><span>{{session.phone_number}}</span></div>
+                        </div>
+                        <div class="contact-info">
+                            <img src="{{url_for('static', filename='/img/internet.svg')}}" alt="Internet">
+                            {% if session.web %}
+                            <div><a href="{{session.web}}" target="_blank" id="web-text">{{session.web}}</a></div>
+                            {% else %}
+                            <div><a href="{{session.web}}" id="web-text"></a></div>
+                            {% endif%}
+                        </div>
+                        <div class="contact-info">
+                            <img src="{{url_for('static', filename='/img/linkedin.svg')}}" alt="Linkedin">
+                            {% if session.linkedin %}
+                            <div><a href="{{session.linkedin}}" target="_blank">{{session.linkedin}}</a></div>
+                            {% else %}
+                            <div><a href="{{session.linkedin}}"></a></div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bottom-bar">
+            <div class="bar-container">
+                <div class="bar-icon">
+                    <a href="/home"><img src="{{url_for('static', filename='/img/home.svg')}}" alt="home"></a>
+                </div>
+                <div class="bar-icon">
+                    <a href="/search"><img src="{{url_for('static', filename='/img/search.svg')}}" alt="search"></a>
+                </div>
+                <div class="bar-icon">
+                    <a href="/contacts"><img src="{{url_for('static', filename='/img/notebook.svg')}}" alt="notebook"></a>
+                </div>
+                <div class="bar-icon">
+                    <a href="/profile"><img src="{{url_for('static', filename='/img/profile.svg')}}" alt="profile"></a>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/profile_user.css')}}">
+    <title>Perfil de {{user.name}} | Join</title>
+</head>
+<body>
+    <div class="total-container">
+        <div>
+            <header>
+                <div class="header-left-container">
+                    <a href="/search"><img src="{{url_for('static', filename='/img/back_arrow.svg')}}" alt="back arrow"></a>
+                    <div class="title-container">
+                        <h1 id="title">Joint</h1>
+                    </div>
+                </div>
+                <img src="{{url_for('static', filename='/img/more.svg')}}" alt="more">
+            </header>
+            <section class="top-container">
+                <div class="photo-container">
+                    {% if user.profile_picture %}
+                    <img src="{{url_for('static', filename=user.profile_picture)}}" alt="Picture" id="picture">
+                    {% else %}
+                    <img src="{{url_for('static', filename='/img/profile_pics/picture.svg')}}" alt="Picture" id="picture">
+                    {% endif %}
+                </div>
+                <div>
+                    <div><span class="profile-span">{{user.name}}</span></div>
+                    <div class="profile-subspan-container"><span class="profile-subspan">{{user.position}}</span></div>
+                    <div class="profile-subspan-container"><span class="profile-subspan">{{user.company}}</span></div>
+                    <div class="message-profile">
+                        <a href="#" id="message-btn">Mensaje</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <section class="mid-container">
+            <div class="contact-description-container">
+                <div class="aboutme-container">
+                    <div class="mid-titles">
+                        <h2>Sobre mí</h2>
+                    </div>
+                    <div class="description">
+                        <p>{{user.description}}</p>
+                    </div>
+                </div>
+                <div class="contact-container">
+                    <div class="mid-titles">
+                        <h2>Datos de contacto</h2>
+                    </div>
+                    <div class="contact-info-container">
+                        <div class="contact-info">
+                            <img src="{{url_for('static', filename='/img/email_black.svg')}}" alt="Email">
+                            <div><span>{{user.email}}</span></div>
+                        </div>
+                        <div class="contact-info">
+                            <img src="{{url_for('static', filename='/img/phone.svg')}}" alt="Phone">
+                            <div><span>{{user.phone_number}}</span></div>
+                        </div>
+                        <div class="contact-info">
+                            <img src="{{url_for('static', filename='/img/internet.svg')}}" alt="Internet">
+                            <div><a href="{{user.web}}" target="_blank" id="web-text">{{user.web}}</a></div>
+                        </div>
+                        <div class="contact-info">
+                            <img src="{{url_for('static', filename='/img/linkedin.svg')}}" alt="Linkedin">
+                            <div><a href="{{user.linkedin}}" target="_blank">{{user.linkedin}}</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bottom-bar">
+            <div class="bar-container">
+                <div class="bar-icon">
+                    <a href="/home"><img src="{{url_for('static', filename='/img/home.svg')}}" alt="home"></a>
+                </div>
+                <div class="bar-icon">
+                    <a href="/search"><img src="{{url_for('static', filename='/img/search.svg')}}" alt="search"></a>
+                </div>
+                <div class="bar-icon">
+                    <a href="/contacts"><img src="{{url_for('static', filename='/img/notebook.svg')}}" alt="notebook"></a>
+                </div>
+                <div class="bar-icon">
+                    <a href="/profile"><img src="{{url_for('static', filename='/img/profile.svg')}}" alt="profile"></a>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

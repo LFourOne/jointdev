@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/share-qr.css')}}">
+    <title>Compartir QR | Joint</title>
+</head>
+<body>
+    <main>
+        <header>
+            <a href="/home"><img src="{{url_for('static', filename='/img/back_arrow.svg')}}" alt="Back"></a>
+            <div class="title-container">
+                <h1>Joint</h1>
+            </div>
+        </header>
+        <section class="middle-container">
+            <div class="user-container">
+                {% if session.profile_picture %}
+                <div class="picture"><img src="{{url_for('static', filename=session.profile_picture)}}" id="picture" alt="Picture"></div>
+                {% else %}
+                <div class="picture"><img src="{{url_for('static', filename='/img/profile_pics/picture.svg')}}" id="picture" alt="Picture"></div>
+                {% endif %}
+                <div>
+                    <span>{{session.name}}</span>
+                </div>
+            </div>
+            <div class="qr-container">
+                <img src="{{session.qr}}" alt="qr" id="qr">
+            </div>
+            <div class="paragraph-container">
+                <p>Tu código QR es único y privado.</p>
+                <p>Quien escanee tu código te agregará como contacto</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

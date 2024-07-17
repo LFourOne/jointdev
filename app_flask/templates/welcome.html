@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/welcome.css')}}">
+    <title> Bienvenida | Joint</title>
+</head>
+<body>
+    <div class="total-container">
+        <section class="top-container">
+            <h1>
+                Bienvenid@ a
+                <br>
+                <span id="joint-title">Joint</span>
+            </h1>
+        </section>
+        <section class="middle container">
+            <div class="steps-container">
+                <div class="step">
+                    <h3 class="step-title">Crea tu perfil</h3>
+                    <span class="subcontent">Crea tu perfil y personalizalo según tus <br> necesidades.</span>
+                </div>
+                <div class="step">
+                    <h3 class="step-title">Gestiona tus contactos</h3>
+                    <span class="subcontent">Agrega, ordena, y accede a tus contactos.</span>
+                </div>
+                <div class="step">
+                    <h3 class="step-title">Interactúa con tus contactos</h3>
+                    <span class="subcontent">Puedes crear más de un perfil, según las necesidades y/o requerimientos.</span>
+                </div>
+            </div>
+        </section>
+        <section class="bottom-container">
+                <a href="/welcome/edit/profile" id="btn">Continuar</a>
+        </section>
+    </div>
+</body>
+</html>

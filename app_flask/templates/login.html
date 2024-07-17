@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/login.css')}}">
+    <title>Iniciar Sesión | Joint</title>
+</head>
+<body>
+    <section>
+        <div class="title-container">
+            <h1 id="title">Joint</h1>
+        </div>
+        <form action="login/success" method="POST">
+            <div class="email-container">
+                <span>Correo electrónico</span>
+                <div class="input-container">
+                    <img src="{{url_for('static', filename='/img/email.svg')}}" alt="Email" class="svg">
+                    <input type="email" class="input-box" name="email" placeholder="Escribe tu correo electrónico">
+                </div>
+            </div>
+            <div class="password-container">
+                <span>Contraseña</span>
+                <div class="input-container">
+                    <img src="{{url_for('static', filename='/img/lock.svg')}}" alt="Lock" class="svg">
+                    <input type="password" class="input-box" name="password" placeholder="Escribe tu contraseña">
+                    {% for message in get_flashed_messages(category_filter=['login_password_error']) %}
+                    <div class="error-icon" data-message="{{message}}">
+                        <img src="{{url_for('static', filename='/img/error.svg')}}" alt="Error">
+                        <div class="tooltip">{{message}}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="forget-container">
+                    <a href="#" id="forget-password">¿Olvidaste tu contraseña?</a>
+                </div>
+            </div>
+            <div class="submit-container">
+                <input type="submit" id="login-btn" value="Iniciar Sesión"></input>
+            </div>
+        </form>
+        <div class="register-container">
+            <div><span>¿No tienes una cuenta?</span></div>
+            <div><a href="/register" id="register-anchor">¡Regístrate aquí!</a></div>
+        </div>
+    </section>
+    <script src="{{url_for('static', filename='/js/register_login.js')}}"></script>
+</body>
+</html>
